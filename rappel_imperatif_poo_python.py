@@ -139,7 +139,7 @@ if __name__ == "__main__":
     print(f"Hauteur de pile: {pile.hauteur()}")
     print(f"Sommet: {pile.depiler()}")
     
-    print('Bien Parenthésée? ', parenthage("(([{]}))"))
+    print('Bien Parenthésée? ', parenthesage("(([{]}))"))
     
     exp = ['3','42','13', '+', '*', '5','-']
     print(f"{exp} = {polonaise(exp)}")
