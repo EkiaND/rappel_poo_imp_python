@@ -31,40 +31,38 @@
     </div>
     <div id="div2">
         <h1>Visualisation Interactive des Tendances des Données</h1>
-        <!-- Insérer ici la liste de sélection -->
-    <table id="tableauDonnees">
-
-        <!-- Les lignes du tableau seront générées dynamiquement -->
-    </table>
-    <!-- Tableaux invisibles pour stocker les données -->
-    <div style="display:none;">
-        <table id="tauxChange">
-            <tr><td>USD/EUR</td><td>0.85</td></tr>
-            <tr><td>USD/JPY</td><td>110.25</td></tr>
+        <select id="categorieDonnees">
+            <option value="tauxChange">Taux de Change</option>
+            <option value="indicesBoursiers">Indices Boursiers</option>
+            <option value="consommationEnergie">Consommation d'Énergie</option>
+        </select>
+        <table id="tableauDonnees">
+            <thead>
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Valeur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les lignes du tableau seront générées dynamiquement -->
+            </tbody>
         </table>
-        <table id="indicesBoursiers">
-            <tr><td>Dow Jones</td><td>35,000</td></tr>
-            <tr><td>NASDAQ</td><td>14,000</td></tr>
-        </table>
-        <table id="consommationEnergie">
-            <tr><td>USA</td><td>3.1 MWh</td></tr>
-            <tr><td>France</td><td>2.5 MWh</td></tr>
-        </table>
-    </div>
     </div>
     <div id="div3">
         <h1>Analyse Dynamique de Transactions</h1>
-        <button onclick="ajouterTransaction()">Générer Transaction</button>
-        <button onclick="afficherStatistiques()">Afficher Statistiques</button>
+        <button id="btnAjouterTransaction">Générer Transaction</button>
+        <button id="btnAfficherStatistiques">Afficher Statistiques</button>
         <ul id="listeTransactions">
+            <!-- Transactions ajoutées dynamiquement -->
         </ul>
         <div id="statistiques"></div>
-
     </div>
-
     <script src="mesScripts.js"></script>
     <script>
         document.getElementById("filtrerCommentaires").addEventListener("click", filtrerCommentairesCritiques);
+        document.getElementById("categorieDonnees").addEventListener("change", chargerDonnees);
+        document.getElementById("btnAjouterTransaction").addEventListener("click", ajouterTransaction);
+        document.getElementById("btnAfficherStatistiques").addEventListener("click", afficherStatistiques);
     </script>
 </body>
 </html>

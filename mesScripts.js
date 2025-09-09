@@ -56,7 +56,20 @@ document.addEventListener("DOMContentLoaded", demarrerDefilementVilles);
 
 //Exercice 3
 function chargerDonnees() {
-      console.log("Chargement d'un tableau de données");
+    const categorie = document.getElementById("categorieDonnees").value;
+    const tableauDonnees = document.getElementById("tableauDonnees").querySelector("tbody");
+    tableauDonnees.innerHTML = ""; // Effacer les données précédentes
+
+    const tableSource = document.getElementById(categorie);
+    const rows = tableSource.rows;
+
+    for (let i = 0; i < rows.length; i++) {
+        const nouvelleLigne = tableauDonnees.insertRow();
+        for (let j = 0; j < rows[i].cells.length; j++) {
+            const nouvelleCellule = nouvelleLigne.insertCell();
+            nouvelleCellule.textContent = rows[i].cells[j].textContent;
+        }
+    }
 }
 
 //Exercice 4
@@ -69,9 +82,29 @@ function genererTransaction() {
 }
 
 function ajouterTransaction() {
-    console.log("Ajout de transaction");
+    const montant = genererTransaction();
+    const listeTransactions = document.getElementById("listeTransactions");
+    const nouvelleTransaction = document.createElement("li");
+
+    nouvelleTransaction.textContent = `Transaction: ${montant} unités`;
+    if (montant > 1000) {
+        nouvelleTransaction.classList.add("supMille");
+        nbreTransactionsSupMile++;
+    }
+
+    listeTransactions.appendChild(nouvelleTransaction);
+    total += montant;
+    nbreTotalTransactions++;
 }
 
 function afficherStatistiques() {
-    console.log("Affiche statistiques");
+    const montantMoyen = nbreTotalTransactions > 0 ? (total / nbreTotalTransactions).toFixed(2) : 0;
+    const pourcentageSupMille = nbreTotalTransactions > 0
+        ? ((nbreTransactionsSupMile / nbreTotalTransactions) * 100).toFixed(2)
+        : 0;
+
+    alert(`Statistiques :
+- Total des montants : ${total} unités
+- Montant moyen : ${montantMoyen} unités
+- Pourcentage de transactions > 1000 unités : ${pourcentageSupMille}%`);
 }
