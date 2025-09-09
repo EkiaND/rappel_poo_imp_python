@@ -2,27 +2,33 @@
 function filtrerCommentairesCritiques() {
     console.log("Filtrage des commentaires critiques");
 
-    // Exemple de tableau de commentaires
-    const commentaires = [
-        "Le produit est excellent !",
-        "Service client médiocre.",
-        "Livraison rapide, mais emballage endommagé.",
-        "Très déçu par la qualité.",
-        "Je recommande fortement ce produit."
-    ];
+    // Récupérer tous les commentaires dans div1
+    const div1 = document.getElementById("div1");
+    const commentaires = Array.from(div1.getElementsByTagName("p"));
 
-    // Filtrer les commentaires critiques (ceux contenant des mots négatifs)
-    const critiques = commentaires.filter(commentaire =>
-        commentaire.toLowerCase().includes("médiocre") ||
-        commentaire.toLowerCase().includes("déçu") ||
-        commentaire.toLowerCase().includes("endommagé")
-    );
-
-    // Afficher les critiques sous forme de liste numérotée
-    console.log("Liste des critiques :");
-    critiques.forEach((critique, index) => {
-        console.log(`${index + 1}. ${critique}`);
+    // Récupérer la liste des critiques urgentes
+    const critiques = commentaires.filter(commentaire => {
+        const note = parseInt(commentaire.textContent.split(":")[0]); // Extraire la note
+        return note <= 2; // Critique urgente si note <= 2
     });
+
+    if (critiques.length > 0) {
+        // Afficher les critiques dans la section "critique"
+        const listeCritiques = document.getElementById("listeCritiques");
+        listeCritiques.innerHTML = ""; // Réinitialiser la liste
+
+        critiques.forEach(critique => {
+            // Ajouter chaque critique à la liste
+            const critiqueItem = document.createElement("li");
+            critiqueItem.textContent = critique.textContent;
+            listeCritiques.appendChild(critiqueItem);
+
+            // Supprimer la critique de la liste des commentaires
+            critique.remove();
+        });
+    } else {
+        console.log("Aucune critique urgente trouvée.");
+    }
 }
 
 //Exercice 2 -Partie 1 et 2

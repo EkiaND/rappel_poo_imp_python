@@ -13,7 +13,10 @@
     </div>
     <div id="div1">
         <h1>Commentaires Clients</h1>
-        <div id="critique"></div>
+        <div id="critique">
+            <h2>Critiques urgentes :</h2>
+            <ol id="listeCritiques"></ol>
+        </div>
         <p>5: Absolument parfait - service rapide et produit de qualité.</p>
         <p>4: Très satisfait du service client, très réactif.</p>
         <p>5: Meilleure expérience d'achat en ligne de ma vie!</p>
@@ -24,7 +27,7 @@
         <p>1: Le support client n'a pas résolu mon problème, très frustré.</p>
         <p>3: Moyennement satisfait, le produit est ok mais rien de spectaculaire.</p>
         <p>5: Impressionnant! Qualité supérieure et excellent support.</p>
-        <button onclick="filtrerCommentairesCritiques()"> Filtrer Commentaires </button>
+        <button id="filtrerCommentaires">Filtrer Commentaires</button>
     </div>
     <div id="div2">
         <h1>Visualisation Interactive des Tendances des Données</h1>
@@ -59,5 +62,8 @@
     </div>
 
     <script src="mesScripts.js"></script>
+    <script>
+        document.getElementById("filtrerCommentaires").addEventListener("click", filtrerCommentairesCritiques);
+    </script>
 </body>
 </html>
