@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>TP Révision DOM + Syntaxe de base de Javascript</title>
+</head>
+<body>
+
+    <div id="infoBande">
+        Bienvenue ! Prochaines villes : <span id="villes">Paris, Lyon, Marseille, Toulouse, Bordeaux</span>
+    </div>
+    <div id="div1">
+        <h1>Commentaires Clients</h1>
+        <div id="critique"></div>
+        <p>5: Absolument parfait - service rapide et produit de qualité.</p>
+        <p>4: Très satisfait du service client, très réactif.</p>
+        <p>5: Meilleure expérience d'achat en ligne de ma vie!</p>
+        <p>3: Assez bon, mais la livraison a pris plus de temps que prévu.</p>
+        <p>2: Le produit ne correspond pas tout à fait à la description.</p>
+        <p>1: Extrêmement déçu par le produit, il est arrivé cassé.</p>
+        <p>4: Service fiable et rapide, je recommande!</p>
+        <p>1: Le support client n'a pas résolu mon problème, très frustré.</p>
+        <p>3: Moyennement satisfait, le produit est ok mais rien de spectaculaire.</p>
+        <p>5: Impressionnant! Qualité supérieure et excellent support.</p>
+        <input type="button" value="Filtrer Commentaires" />
+    </div>
+    <div id="div2">
+        <h1>Visualisation Interactive des Tendances des Données</h1>
+        <!-- Insérer ici la liste de sélection -->
+    <table id="tableauDonnees">
+        <!-- Les lignes du tableau seront générées dynamiquement -->
+    </table>
+    <!-- Tableaux invisibles pour stocker les données -->
+    <div style="display:none;">
+        <table id="tauxChange">
+            <tr><td>USD/EUR</td><td>0.85</td></tr>
+            <tr><td>USD/JPY</td><td>110.25</td></tr>
+        </table>
+        <table id="indicesBoursiers">
+            <tr><td>Dow Jones</td><td>35,000</td></tr>
+            <tr><td>NASDAQ</td><td>14,000</td></tr>
+        </table>
+        <table id="consommationEnergie">
+            <tr><td>USA</td><td>3.1 MWh</td></tr>
+            <tr><td>France</td><td>2.5 MWh</td></tr>
+        </table>
+    </div>
+    </div>
+    <div id="div3">
+        <h1>Analyse Dynamique de Transactions</h1>
+        <button onclick="ajouterTransaction()">Générer Transaction</button>
+        <button onclick="afficherStatistiques()">Afficher Statistiques</button>
+        <ul id="listeTransactions">
+        </ul>
+        <div id="statistiques"></div>
+
+    </div>
+
+    <script src="mesScripts.js"></script>
+</body>
+</html>
