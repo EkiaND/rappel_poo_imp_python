@@ -33,19 +33,32 @@ function filtrerCommentairesCritiques() {
 
 //Exercice 2 -Partie 1 et 2
 function miseAJourVilles() {
-  console.log("mise à jour de villes");
+    const villesElement = document.getElementById("villes");
+    const villes = villesElement.textContent.split(", ");
+
+    if (villes.length > 0) {
+        // Retirer la première ville et la rajouter à la fin
+        const ville = villes.shift();
+        villes.push(ville);
+
+        // Mettre à jour l'affichage
+        villesElement.textContent = villes.join(", ");
+    }
 }
 
 function demarrerDefilementVilles() {
-    console.log("Défilement continu des villes");
+    setInterval(() => {
+        miseAJourVilles();
+    }, 2000);
 }
+
+document.addEventListener("DOMContentLoaded", demarrerDefilementVilles);
 
 //Exercice 3
 function chargerDonnees() {
       console.log("Chargement d'un tableau de données");
 }
 
-//Exercice 4
 //Exercice 4
 let total = 0; //La somme totale des transactions générées
 let nbreTotalTransactions = 0; //Nombre de transactions générées
