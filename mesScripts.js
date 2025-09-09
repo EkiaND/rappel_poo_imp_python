@@ -1,6 +1,28 @@
 //Exercice 1
 function filtrerCommentairesCritiques() {
     console.log("Filtrage des commentaires critiques");
+
+    // Exemple de tableau de commentaires
+    const commentaires = [
+        "Le produit est excellent !",
+        "Service client médiocre.",
+        "Livraison rapide, mais emballage endommagé.",
+        "Très déçu par la qualité.",
+        "Je recommande fortement ce produit."
+    ];
+
+    // Filtrer les commentaires critiques (ceux contenant des mots négatifs)
+    const critiques = commentaires.filter(commentaire =>
+        commentaire.toLowerCase().includes("médiocre") ||
+        commentaire.toLowerCase().includes("déçu") ||
+        commentaire.toLowerCase().includes("endommagé")
+    );
+
+    // Afficher les critiques sous forme de liste numérotée
+    console.log("Liste des critiques :");
+    critiques.forEach((critique, index) => {
+        console.log(`${index + 1}. ${critique}`);
+    });
 }
 
 //Exercice 2 -Partie 1 et 2
